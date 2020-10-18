@@ -40,7 +40,7 @@ app.use('/api', openWeatherMapRouter)
 
 app.get('*', function (req, res) {
     const fileUrlPath = req.path.toString().substring(1).split('/')
-    const filePath = path.join.apply(null, [__dirname, 'dist', 'weather-angular', ...fileUrlPath])
+    const filePath = path.join.apply(null, [__dirname, 'dist', ...fileUrlPath])
     if (fs.existsSync(filePath)) {
         res.sendFile(filePath)
     }
